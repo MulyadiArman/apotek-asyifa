@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Admin\LoginController;
 use App\Http\Controllers\Api\Admin\CategoryController;
+use App\Http\Controllers\Api\Admin\ProductController;
+use App\Http\Controllers\Api\Admin\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +33,10 @@ Route::prefix('admin')->group(function () {
 
         // Categories resource
         Route::apiResource('/categories', CategoryController::class)->except(['create', 'edit'])->names('admin.categories');
+        
+        // Product resource
+        Route::apiResource('/products', ProductController::class)->except(['create', 'edit'])->names('admin.products');
+
+        Route::apiResource('/sliders', SliderController::class)->except(['create', 'show', 'edit', 'update'])->names('admin.sliders');
     });
 });
