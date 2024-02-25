@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\Admin\LoginController;
 use App\Http\Controllers\Api\Admin\CategoryController;
 use App\Http\Controllers\Api\Admin\ProductController;
 use App\Http\Controllers\Api\Admin\SliderController;
+use App\Http\Controllers\Api\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,10 @@ Route::prefix('admin')->group(function () {
         // Product resource
         Route::apiResource('/products', ProductController::class)->except(['create', 'edit'])->names('admin.products');
 
+        // Slider resource
         Route::apiResource('/sliders', SliderController::class)->except(['create', 'show', 'edit', 'update'])->names('admin.sliders');
+
+        // user resource
+        Route::apiResource('/users', UserController::class)->except(['create', 'edit'])->names('admin.users');
     });
 });
